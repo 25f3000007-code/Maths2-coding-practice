@@ -9,4 +9,6 @@ for i in range(1, n+1):
         row.append(a)
     matrix.append(row)
 
-print(matrix)
+# better representation
+for i in range(1, n+1):
+    print(row)
