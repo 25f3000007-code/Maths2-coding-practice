@@ -10,5 +10,8 @@ for i in range(1, n+1):
     matrix.append(row)
 
 # better representation
-for i in range(1, n+1):
-    print(row)
+for row in matrix:                                                              #The key idea is:
+    for element in row:                                                         #for row in matrix → move down the matrix./for element in row → move across the matrix./end=" " → stay on the same line./print() after the inner loop → start a new row.
+        print(f"{element:.3f}", end = " ")
+    print() # an empty print means  = print("\n")
+    
