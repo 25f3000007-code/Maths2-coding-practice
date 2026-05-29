@@ -10,22 +10,40 @@ matrix = []
 for i in range(1, rows+1):
     r = (input(f'Enter row{i}: ').split())
     matrix.append(r)
+
     
-print(matrix)     
-def get_diagonal():
-    diagonal = [] 
+def diagonal_and_non_diognal_elements():
+    non_diagonal = []
+    diagonal = []
     for i in range(0, rows):
-        temp_list = matrix[i]
-        element = temp_list[i]
-        diagonal.append(element)
-    return(diagonal)
+        for j in range(0, columns):
+            if i != j:
+                non_diagonal.append(matrix[i][j])
+            else:
+                diagonal.append(matrix[i][j])
+    return(diagonal,non_diagonal)
 
-print(get_diagonal())
+x = diagonal_and_non_diognal_elements()
 
-'''You loop with for i in range(1, rows+1):
-Python lists are zero-indexed, so valid row indices are 0 to rows-1
-When i == rows, matrix[i] is out of range and raises IndexError'''
+argument1  = x[0]
+argument2 = x[1]
 
+def matrix_check(diagonal, non_diagonal):
+    square_matrix = rows == columns
+    diagonal_matrix = False
+    scalar_matrix = False
+
+    if square_matrix and all(item == "0" for item in non_diagonal):
+        diagonal_matrix = True
+        target = diagonal[0]
+        scalar_matrix = all(item == target for item in diagonal)
+
+    return(f'Square Matrix: {square_matrix}\nDiagonal Matrix: {diagonal_matrix}\nScalar Matrix: {scalar_matrix}')
+    
+               
+print(matrix_check(argument1, argument2))          
+
+        
     
 
-
+    
