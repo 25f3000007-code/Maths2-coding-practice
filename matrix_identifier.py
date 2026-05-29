@@ -13,8 +13,8 @@ for i in range(1, rows+1):
     
 print(matrix)     
 def get_diagonal():
-    diagonal = []
-    for i in range(0, rows+1):
+    diagonal = [] 
+    for i in range(0, rows):
         temp_list = matrix[i]
         element = temp_list[i]
         diagonal.append(element)
