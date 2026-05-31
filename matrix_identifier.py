@@ -41,9 +41,4 @@ def matrix_check(diagonal, non_diagonal):
     return(f'Square Matrix: {square_matrix}\nDiagonal Matrix: {diagonal_matrix}\nScalar Matrix: {scalar_matrix}')
     
                
-print(matrix_check(argument1, argument2))          
-
-        
-    
-
-    
+print(matrix_check(argument1, argument2))
