@@ -23,7 +23,7 @@ def matrix_addition(A, B):
     
     return(sum_matrix)
 
-print(matrix_addition(A,B))
+add = matrix_addition(A,B)
 
 def matrix_subtraction(A, B):
     dif_matrix = []
@@ -36,7 +36,7 @@ def matrix_subtraction(A, B):
     
     return(dif_matrix)
 
-print(matrix_subtraction(A,B))
+dif = matrix_subtraction(A,B)
 
 def largest_element(A,B):
     eA = 0
@@ -67,5 +67,28 @@ def smallest_element(A,B):
                 eB = int(B[i][j])
     return(f' Min among both the matrix is {min(eA,eB)} and for Matrix A it is {eA} and for matrix B is {eB}')
 
+
+# lets work on column addition first
+def column_addition(A,B):
+    for j in range(0, columns):
+        col = []
+        for i in range(0, rows):
+            val = int(A[i][j]) + int(B[i][j])
+            col.append(val)
+        print(f'Column{ j} addition is {col}')
+
+def row_addition(A,B):
+    for i in range(0, rows):
+        row = []
+        for j in range(0, columns):
+            val = int(A[i][j]) + int(B[i][j])
+            row.append(val)
+        print(f'Row{ i} addition is {row}')
+
+
+print(add)
+print(dif)
 print(largest_element(A,B))
 print(smallest_element(A,B))
+column_addition(A,B)
+row_addition(A,B)
