@@ -39,13 +39,22 @@ def upper_triangular(matrix):
             lower_element.append(matrix[i][j])
     return(lower_element)
 
+def lower_triangular(matrix):
+    upper_element = []
+    for i in range(rows):
+        for j in range(i+1, rows):
+            upper_element.append(matrix[i][j])
+    return(upper_element)
+
+argument4 = lower_triangular(matrix)
 arguement3 = upper_triangular(matrix)
                         
-def matrix_check(diagonal, non_diagonal, lower_element):
+def matrix_check(diagonal, non_diagonal, lower_element, upper_element):
     square_matrix = rows == columns
     diagonal_matrix = False
     scalar_matrix = False
     upper_triangular = False
+    lower_triangular = False
 
     if square_matrix and all(item == "0" for item in non_diagonal):
         diagonal_matrix = True
@@ -53,7 +62,8 @@ def matrix_check(diagonal, non_diagonal, lower_element):
         scalar_matrix = all(item == target for item in diagonal)
     if square_matrix:
         upper_triangular = all(item == '0' for item in lower_element)
+        lower_triangular = all(item == '0' for item in upper_element)
 
-    return(f'Square Matrix: {square_matrix}\nDiagonal Matrix: {diagonal_matrix}\nScalar Matrix: {scalar_matrix}\nUpper Triangular Matrix: {upper_triangular}')
+    return(f'Square Matrix: {square_matrix}\nDiagonal Matrix: {diagonal_matrix}\nScalar Matrix: {scalar_matrix}\nUpper Triangular Matrix: {upper_triangular}\n Lower Triangular Matrix{lower_triangular}')
 
-print(matrix_check(argument1, argument2, arguement3))
+print(matrix_check(argument1, argument2, arguement3, argument4))
