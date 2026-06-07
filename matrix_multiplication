@@ -1,0 +1,94 @@
+A = []
+B = []
+
+# Get the shape of matrix A and matrix B from the user.
+# The user should enter sizes like "2x3" for 2 rows and 3 columns.
+order_a = input("Enter the order of matrix A nxm: ")
+order_b = input("Enter the order of matrix B nxm: ")
+
+row_a, column_a = order_a.split('x')
+row_a = int(row_a)
+column_a = int(column_a)
+
+row_b, column_b = order_b.split('x')
+row_b = int(row_b)
+column_b = int(column_b)
+
+print("A row", row_a)
+print("A column", column_a)
+print("B row", row_b)
+print("B column", column_b)
+
+# We need matrix A columns to equal matrix B rows for multiplication.
+# If this is not true, the product does not exist.
+
+
+def multiplication_matrix(matrix_A, matrix_B):
+    # Create a new list that will hold the result matrix.
+    product_matrix = []
+
+    # rows_A is how many rows are in A.
+    # cols_A is how many columns are in A.
+    # cols_B is how many columns are in B.
+    rows_A = len(matrix_A)
+    cols_A = len(matrix_A[0])
+    cols_B = len(matrix_B[0])
+
+    # For each row in A, we will build one row in the answer.
+    for i in range(rows_A):
+        r = []
+
+        # For each column in B, compute one entry in the answer.
+        for j in range(cols_B):
+            cell_sum = 0
+
+            # Multiply matching entries from A's row and B's column.
+            # Then add them together to get the value for one cell.
+            for k in range(cols_A):
+                cell_sum += matrix_A[i][k] * matrix_B[k][j]
+
+            # Save the computed value for this row and column.
+            r.append(cell_sum)
+
+        # Add the completed row to the product matrix.
+        product_matrix.append(r)
+
+    return product_matrix
+            
+
+if column_a != row_b:
+        print("Matrx Multiplication is not possible")
+else:
+    for i in range(1, row_a+1):
+        r = input(f'Enter row{i} of matrix A: ').split()
+        A.append(r)
+    
+    for i in range(1, row_b+1):
+        r = input(f'Enter row{i} of matrix B: ').split()
+        B.append(r)
+    
+    matrix_A = []
+    for row in A:
+        r = []
+        for element in row:
+            r.append(int(element))
+        matrix_A.append(r)
+    
+    print(matrix_A)
+    
+    matrix_B = []
+    for row in B:
+        r = []
+        for element in row:
+            r.append(int(element))
+        matrix_B.append(r)
+    
+    print(matrix_B)
+                        
+    print(multiplication_matrix(matrix_A, matrix_B))
+    
+
+    
+
+    
+        
