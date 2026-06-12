@@ -1,4 +1,3 @@
-1
 dataset = input("Enter Number:\n").split(" ")
 int_list = []
 for element in dataset:
