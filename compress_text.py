@@ -1,20 +1,25 @@
 string = input("Input:\n")
-sorted_string = sorted(string)
+shorten_string = ""
+current_char = string[0]
+current_count = 0
+for i in range(0, len(string)):
+    if string[i] == current_char:
+        current_count += 1
+    else:
+        shorten_string += current_char + str(current_count)
+        current_char = string[i]
+        current_count = 1
+shorten_string += current_char + str(current_count)
+
+    
+        
 
 
-compressed_text = ""
-seen = []
-
-for i in sorted_string:
-    if i in seen:
-        continue
-    seen.append(i)
-    count = 0
-    for z in sorted_string:
-        if i == z:
-            count += 1
-    compressed_text += i + str(count)
+print(shorten_string)
     
     
+#iterating through all the elements in the list of alphabets from left to right    
 
-print(compressed_text)
+            
+    
+
